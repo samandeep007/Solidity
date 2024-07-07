@@ -17,7 +17,7 @@ contract ZombieFactory {
     mapping (uint => address) public zombieToOwner;
     mapping (address => uint) ownerZombieCount;
 
-    function _createZombie(string memory _name, uint _dna) private {
+    function _createZombie(string memory _name, uint _dna) internal {
         require(ownerZombieCount[msg.sender] == 0);
         uint id = zombies.push(Zombie(_name, _dna)) - 1;
         // start here
