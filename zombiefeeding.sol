@@ -29,6 +29,9 @@ contract zombieFeeding is ZombieFactory {
       Zombie storage myZombie = zombies[_zombieId]
       _targetDna = _targetDna % dnaModulus;
       uint newDna = (myZombie.dna + _targetDna) / 2; // Average of zombie's dna and target dna
+      if(keccak256(abi.encodePacked(_specied)) == keccak256(abi.encode("kitty"))){
+        newDna = newDna - newDna % 100 + 99;
+      }
       _createZombie("NoName", newDna); //creating a zombie
     }
 
