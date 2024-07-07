@@ -4,12 +4,12 @@ contract zombieFeeding is ZombieFactory {
 
 
     function feedAndMultiply(uint _zombieId, uint _targetDna) public {
-      require(msg.sender == zombieToOwner[_zombieId]);
+      require(msg.sender == zombieToOwner[_zombieId]); // Authenticating
       Zombie storage myZombie = Zombies[_zombieId]
       _targetDna = _targetDna % dnaModulus;
-      uint newDna = (myZombie.dna + _targetDna) / 2;
-      _createZombie("NoName", newDna);
+      uint newDna = (myZombie.dna + _targetDna) / 2; // Average of zombie's dna and target dna
+      _createZombie("NoName", newDna); //creating a zombie
     }
 
-    
+
 }

@@ -1,5 +1,9 @@
 pragma solidity >=0.5.0 <0.6.0;
 
+contract kittyInterface {
+    function getKitty()
+}
+
 contract ZombieFactory {
 
     event NewZombie(uint zombieId, string name, uint dna);
